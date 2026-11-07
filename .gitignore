@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compilación de .NET
+bin/
+obj/
+**/bin/
+**/obj/
+
+# User Secrets y configuración local
+secrets.json
+appsettings.*.local.json
+
+# Otros archivos generados
+.vscode/
+*.log
