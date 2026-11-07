@@ -1,0 +1,4 @@
+@Recetario_Api_HostAddress = https://localhost:7107
+
+GET {{Recetario_Api_HostAddress}}/api/categorias
+Accept: application/json

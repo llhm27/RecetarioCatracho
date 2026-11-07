@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><UserSecretsId>recetario-catracho-api-local</UserSecretsId></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Recetario.Application\Recetario.Application.csproj" />
+    <ProjectReference Include="..\Recetario.Infrastructure\Recetario.Infrastructure.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.11.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0"><PrivateAssets>all</PrivateAssets><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets></PackageReference>
+  </ItemGroup>
+</Project>
