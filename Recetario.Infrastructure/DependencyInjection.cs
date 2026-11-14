@@ -2,8 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Recetario.Application.Categorias;
+using Recetario.Application.Recetas;
 using Recetario.Infrastructure.Categorias;
 using Recetario.Infrastructure.Persistencia;
+using Recetario.Infrastructure.Recetas;
 
 namespace Recetario.Infrastructure;
 
@@ -15,6 +17,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Falta la cadena ConnectionStrings:Default.");
         services.AddDbContext<AppDbContext>(opciones => opciones.UseSqlServer(cadenaConexion));
         services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+        services.AddScoped<IRecetaRepository, RecetaRepository>();
         return services;
     }
 }
