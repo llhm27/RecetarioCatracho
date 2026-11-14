@@ -1,4 +1,183 @@
-@Recetario_Api_HostAddress = https://localhost:7107
+@Recetario_Api_HostAddress = http://localhost:5009
+@baleadaId = {{crearBaleadas.response.body.$.id}}
+@sopaId = {{crearSopa.response.body.$.id}}
 
-GET {{Recetario_Api_HostAddress}}/api/categorias
+### Lista de recetas
+GET {{Recetario_Api_HostAddress}}/api/recetas
+Accept: application/json
+
+### Búsqueda por nombre o ingredientes
+GET {{Recetario_Api_HostAddress}}/api/recetas?search=carne
+Accept: application/json
+
+### Filtro por categoría (Antojito)
+GET {{Recetario_Api_HostAddress}}/api/recetas?categoriaId=6
+Accept: application/json
+
+### Filtro por dificultad
+GET {{Recetario_Api_HostAddress}}/api/recetas?dificultad=Facil
+Accept: application/json
+
+### Página solicitada
+GET {{Recetario_Api_HostAddress}}/api/recetas?page=2
+Accept: application/json
+
+### Tamaño de página solicitado
+GET {{Recetario_Api_HostAddress}}/api/recetas?pageSize=5
+Accept: application/json
+
+### POST válido: baleadas
+# @name crearBaleadas
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Baleadas",
+  "categoriaId": 1,
+  "dificultad": "Facil",
+  "tiempoPreparacionMin": 25,
+  "porciones": 4,
+  "ingredientes": "Tortillas de harina, frijoles fritos, mantequilla, queso rallado y aguacate.",
+  "pasos": "Calentar las tortillas. Untar frijoles, agregar mantequilla y queso, doblar y servir con aguacate."
+}
+
+### Preparación: segunda receta para probar actualización y conflicto
+# @name crearSopa
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Sopa de caracol",
+  "categoriaId": 3,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 90,
+  "porciones": 6,
+  "ingredientes": "Caracol, leche de coco, yuca, plátano verde, cebolla, ajo, chile dulce y cilantro.",
+  "pasos": "Cocinar los tubérculos. Sofreír los vegetales, añadir leche de coco y caracol, y cocinar hasta que esté tierno."
+}
+
+### Preparación: pastelitos de carne
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Pastelitos de carne",
+  "categoriaId": 6,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 55,
+  "porciones": 6,
+  "ingredientes": "Masa de maíz, carne molida, papa, cebolla y achiote.",
+  "pasos": "Preparar el relleno de carne y papa, rellenar la masa y freír hasta dorar."
+}
+
+### Preparación: tajadas con carne
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Tajadas con carne",
+  "categoriaId": 2,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 45,
+  "porciones": 4,
+  "ingredientes": "Plátanos verdes, carne de res, repollo, tomate, cebolla y salsa.",
+  "pasos": "Freír las tajadas, cocinar la carne y servir con repollo, vegetales y salsa."
+}
+
+### Detalle de baleadas
+GET {{Recetario_Api_HostAddress}}/api/recetas/{{baleadaId}}
+Accept: application/json
+
+### POST inválido
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "categoriaId": 1,
+  "dificultad": "Facil",
+  "tiempoPreparacionMin": 0,
+  "porciones": 0,
+  "ingredientes": "",
+  "pasos": ""
+}
+
+### POST con nombre repetido (Baleadas)
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "baleadas",
+  "categoriaId": 1,
+  "dificultad": "Facil",
+  "tiempoPreparacionMin": 25,
+  "porciones": 4,
+  "ingredientes": "Tortillas, frijoles y queso.",
+  "pasos": "Rellenar las tortillas y servir."
+}
+
+### POST con categoría inexistente
+POST {{Recetario_Api_HostAddress}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Pastelitos de carne",
+  "categoriaId": 999999,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 60,
+  "porciones": 6,
+  "ingredientes": "Masa de maíz, carne molida, papa, cebolla y achiote.",
+  "pasos": "Preparar el relleno, rellenar la masa y freír los pastelitos."
+}
+
+### PUT válido: actualizar sopa
+PUT {{Recetario_Api_HostAddress}}/api/recetas/{{sopaId}}
+Content-Type: application/json
+
+{
+  "nombre": "Sopa de caracol tradicional",
+  "categoriaId": 3,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 95,
+  "porciones": 6,
+  "ingredientes": "Caracol, leche de coco, yuca, plátano verde, cebolla, ajo, chile dulce y cilantro.",
+  "pasos": "Cocinar los tubérculos. Preparar el sofrito, añadir leche de coco y caracol, y cocinar hasta que esté tierno."
+}
+
+### PUT inexistente
+PUT {{Recetario_Api_HostAddress}}/api/recetas/999999
+Content-Type: application/json
+
+{
+  "nombre": "Receta inexistente",
+  "categoriaId": 1,
+  "dificultad": "Facil",
+  "tiempoPreparacionMin": 20,
+  "porciones": 2,
+  "ingredientes": "Harina y agua.",
+  "pasos": "Mezclar y cocinar."
+}
+
+### PUT con nombre de otra receta (Baleadas)
+PUT {{Recetario_Api_HostAddress}}/api/recetas/{{sopaId}}
+Content-Type: application/json
+
+{
+  "nombre": "Baleadas",
+  "categoriaId": 3,
+  "dificultad": "Media",
+  "tiempoPreparacionMin": 95,
+  "porciones": 6,
+  "ingredientes": "Caracol, leche de coco, yuca y plátano verde.",
+  "pasos": "Cocinar todo hasta que esté tierno."
+}
+
+### DELETE válido: sopa
+DELETE {{Recetario_Api_HostAddress}}/api/recetas/{{sopaId}}
+
+### DELETE inexistente
+DELETE {{Recetario_Api_HostAddress}}/api/recetas/999999
+
+### GET de la receta eliminada
+GET {{Recetario_Api_HostAddress}}/api/recetas/{{sopaId}}
 Accept: application/json
