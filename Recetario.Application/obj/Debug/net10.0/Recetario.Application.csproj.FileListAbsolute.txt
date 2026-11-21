@@ -1,0 +1,15 @@
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\bin\Debug\net10.0\Recetario.Application.deps.json
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\bin\Debug\net10.0\Recetario.Application.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\bin\Debug\net10.0\Recetario.Application.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\bin\Debug\net10.0\Recetario.Domain.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\bin\Debug\net10.0\Recetario.Domain.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.AssemblyInfo.cs
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetari.835125BB.Up2Date
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\refint\Recetario.Application.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\Recetario.Application.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Application\obj\Debug\net10.0\ref\Recetario.Application.dll

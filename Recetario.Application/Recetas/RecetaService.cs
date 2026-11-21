@@ -1,8 +1,9 @@
+using Recetario.Application.Archivos;
 using Recetario.Domain;
 
 namespace Recetario.Application.Recetas;
 
-public sealed class RecetaService(IRecetaRepository repositorio) : IRecetaService
+public sealed class RecetaService(IRecetaRepository repositorio, IFileStorage almacenamiento) : IRecetaService
 {
     public Task<ResultadoPaginado<RecetaListaDto>> ObtenerAsync(string? busqueda, int? categoriaId,
         Dificultad? dificultad, int pagina, int tamanoPagina, CancellationToken cancellationToken) =>
@@ -45,7 +46,16 @@ public sealed class RecetaService(IRecetaRepository repositorio) : IRecetaServic
     {
         var receta = await repositorio.ObtenerEntidadPorIdAsync(id, cancellationToken)
             ?? throw new RecetaNoEncontradaException(id);
+        var imagen = receta.ImagenRuta;
+        var video = receta.VideoRuta;
+
+        // Primero se elimina el registro; si eso falla, los archivos siguen siendo válidos y no se tocan.
         await repositorio.EliminarAsync(receta, cancellationToken);
+
+        if (imagen is not null)
+            await almacenamiento.EliminarAsync(imagen, cancellationToken);
+        if (video is not null)
+            await almacenamiento.EliminarAsync(video, cancellationToken);
     }
 
     private async Task ValidarReferenciasYNombreAsync(int categoriaId, string nombre, int? excluirId,

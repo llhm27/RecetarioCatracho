@@ -1,0 +1,17 @@
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Infrastructure.deps.json
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Infrastructure.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Infrastructure.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Application.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Domain.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Application.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\bin\Debug\net10.0\Recetario.Domain.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.AssemblyInfo.cs
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetari.39115E2B.Up2Date
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\refint\Recetario.Infrastructure.dll
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\Recetario.Infrastructure.pdb
+C:\Users\HP\OneDrive\Documentos\RecetarioCatracho-main\Recetario.Infrastructure\obj\Debug\net10.0\ref\Recetario.Infrastructure.dll
