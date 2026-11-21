@@ -49,6 +49,36 @@ Con la aplicación en ejecución, abre Scalar en [http://localhost:5009/scalar/]
 - **Recetario.Infrastructure** implementa el acceso a SQL Server, la persistencia con EF Core y los repositorios.
 - **Recetario.Api** expone los endpoints HTTP y configura el middleware y las dependencias de la aplicación.
 
+## Imagen y video de las recetas
+
+Cada receta puede tener una imagen y un video. Los archivos se guardan en disco, en la carpeta `Uploads/` del proyecto API (se puede cambiar con `Almacenamiento:RutaBase` en `appsettings.json`), con un nombre generado con `Guid`. En la base de datos solo se registra la ruta (`ImagenRuta` y `VideoRuta`), nunca el contenido.
+
+| Método | Ruta | Descripción |
+|---|---|---|
+| PUT | `/api/recetas/{id}/imagen-base64` | Recibe JSON `{ "nombreArchivo": "foto.jpg", "imagenBase64": "..." }`. Reemplaza la imagen anterior. |
+| GET | `/api/recetas/{id}/imagen` | Devuelve el archivo con su tipo de contenido (`image/jpeg`, `image/png` o `image/webp`). |
+| DELETE | `/api/recetas/{id}/imagen` | Elimina la imagen del disco y su ruta de la base de datos. |
+| PUT | `/api/recetas/{id}/video` | `multipart/form-data` con el campo `archivo` (MP4). Reemplaza el video anterior. |
+| GET | `/api/recetas/{id}/video` | Devuelve el MP4 con soporte de rangos (`Range` → `206 Partial Content`) para reproducirlo. |
+| DELETE | `/api/recetas/{id}/video` | Elimina el video del disco y su ruta de la base de datos. |
+
+Al eliminar una receta (`DELETE /api/recetas/{id}`) también se borran su imagen y su video del disco.
+
+### Validaciones
+
+| Código | Cuándo |
+|---|---|
+| 400 | El texto no es Base64 válido, o el archivo está vacío. |
+| 413 | La imagen supera 5 MB o el video supera 30 MB. |
+| 415 | La imagen no es JPG, PNG o WebP, o el video no es MP4. El formato se comprueba con los primeros bytes del archivo, no solo con su nombre. |
+| 404 | La receta no existe, o no tiene imagen o video. |
+
+El video se envía como `multipart/form-data` porque en Base64 el tamaño aumentaría aproximadamente un tercio.
+
+### Pruebas en Postman
+
+Importa `postman/Recetario-Multimedia.postman_collection.json`, ajusta las variables `baseUrl` y `recetaId`, y ejecuta las solicitudes en orden. En las solicitudes de video elige el archivo en **Body → form-data → archivo → Select Files**.
+
 ## Integrantes
 
 - [NOMBRE]
